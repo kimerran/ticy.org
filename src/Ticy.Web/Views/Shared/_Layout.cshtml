@@ -4,14 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - T I C Y !</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/css")@Styles.Render("~/prism-css")
+    @Scripts.Render("~/modernizr")@Scripts.Render("~/jquery")
 </head>
 <body>
     @RenderSection("bodyheader", required: false)
-
-
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -20,11 +17,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ticy.org", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Tang Inang Code Yan!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("New Thread", "New", "Home")</li>
+                    @*<li>@Html.ActionLink("New Thread", "New", "Home")</li>*@
                 </ul>
             </div>
         </div>
@@ -36,13 +33,8 @@
             <p>&copy; @DateTime.Now.Year - ticy.org</p>
         </footer>
     </div>
-
-   
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bootstrap")
+    @Scripts.Render("~/prism")
     @RenderSection("scripts", required: false)
-
-    
-
-
 </body>
 </html>

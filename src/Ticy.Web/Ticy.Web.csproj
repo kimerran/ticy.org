@@ -160,6 +160,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\disqus\disqus.js" />
+    <Content Include="Content\prism\prism.css" />
+    <Content Include="Content\prism\prism.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

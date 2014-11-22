@@ -1,7 +1,7 @@
 ﻿@model  Ticy.Web.ViewModels.ThreadDetailsViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Entity.Title;
 }
 
 @section bodyHeader{
@@ -12,5 +12,9 @@
     </div>
 }
 <p>
-    <pre><code>@Model.Entity.Content</code></pre>
+    <pre class="line-numbers"><code class="language-@Model.Entity.LanguageClass)">@Model.Entity.Content</code></pre>
 </p>
+
+<div id="disqus_thread"></div>
+@Scripts.Render("~/disqus")
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

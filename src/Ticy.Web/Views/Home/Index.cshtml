@@ -8,7 +8,7 @@
     @foreach (var item in Model.Entity)
     {
         <li data-id="@item.Id">
-            <h4><a href="/t/@item.HashId">@item.Title</a></h4>
+            <h1><a href="/t/@item.HashId">@item.Title</a></h1>
             <small>@item.Content</small>
         </li>
     }

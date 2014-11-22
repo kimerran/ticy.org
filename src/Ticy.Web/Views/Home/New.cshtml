@@ -18,19 +18,23 @@
     </p>
 
     <p>
-        Content : 
-        @Html.TextAreaFor(x=>x.ThreadContent, new { rows = "20", cols = "50" } )
+        Language:
+        @Html.EnumDropDownListFor(x => x.Entity.Language)
+    </p>
+    <p>
+        Content :
+        @Html.TextAreaFor(x => x.ThreadContent, new { rows = "20", cols = "50" })
 
         <span style="color:red">
             @Html.ValidationMessageFor(model => model.ThreadContent)
         </span>
 
-    </p>    
+    </p>
 
     <input type="submit" value="Save" />
 }
 
 @section Scripts
 {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/jqueryval")
 }
