@@ -1,0 +1,36 @@
+﻿@model  Ticy.Web.ViewModels.ThreadCreateViewModel
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Title:
+        @Html.EditorFor(x => x.Entity.Title)
+
+        <span style="color:red">
+            @Html.ValidationMessageFor(model => model.Entity.Title)
+        </span>
+    </p>
+
+    <p>
+        Content : 
+        @Html.TextAreaFor(x=>x.ThreadContent, new { rows = "20", cols = "50" } )
+
+        <span style="color:red">
+            @Html.ValidationMessageFor(model => model.ThreadContent)
+        </span>
+
+    </p>    
+
+    <input type="submit" value="Save" />
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

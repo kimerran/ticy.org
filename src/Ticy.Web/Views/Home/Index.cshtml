@@ -1,0 +1,39 @@
+﻿@model  Ticy.Web.ViewModels.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<ul id="threads">
+    @foreach (var item in Model.Entity)
+    {
+        <li data-id="@item.Id">
+            <h4><a href="/t/@item.HashId">@item.Title</a></h4>
+            <small>@item.Content</small>
+        </li>
+    }
+</ul>
+<script>
+    var ticy_last_id = $("#threads li:last").attr('data-id');
+
+    console.log('last id is : ' + ticy_last_id);
+</script>
+@section Scripts
+{
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+
+                console.log($(window).scrollTop());
+
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+
+                    console.log('boom panes!');
+
+                    // ajax call get data from server and append to the div
+                }
+            });
+        });
+
+    </script>
+}

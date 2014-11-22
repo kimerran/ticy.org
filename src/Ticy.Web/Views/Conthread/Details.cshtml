@@ -1,0 +1,16 @@
+﻿@model  Ticy.Web.ViewModels.ThreadDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section bodyHeader{
+    <div class="jumbotron" style="width:100%">
+        <center>
+            <h1>@Model.Entity.Title</h1>
+        </center>
+    </div>
+}
+<p>
+    <pre><code>@Model.Entity.Content</code></pre>
+</p>
