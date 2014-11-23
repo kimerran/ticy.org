@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hashids.net">
-      <HintPath>..\libraries\hashids.net\Hashids.net.dll</HintPath>
-    </Reference>
     <Reference Include="Likja.DataAccess.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libraries\likja\Likja.DataAccess.Common.dll</HintPath>
