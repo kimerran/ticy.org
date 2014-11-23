@@ -4,6 +4,6 @@ namespace Ticy.Web.ViewModels
 {
     public class ThreadDetailsViewModel
     {
-        public ConthreadEntity Entity { get; set; }
+        public CodeThread Entity { get; set; }
     }
 }

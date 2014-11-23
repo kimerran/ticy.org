@@ -5,7 +5,8 @@ namespace Ticy.DataAccess
 {
     public class TicyDb : DbContext
     {
-        public DbSet<ConthreadEntity> Conthreads { get; set; }
+        public DbSet<CodeThread> Conthreads { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
         public TicyDb() : base("TicyDb") { }
     }
 }

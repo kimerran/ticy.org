@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Likja.Conthread;
+using System.Collections.Generic;
 using System.Web.Http;
-using Ticy.Api.Conthread;
 using Ticy.Domain.Models;
 
 namespace Ticy.Web.Controllers.ApiControllers
@@ -8,15 +8,15 @@ namespace Ticy.Web.Controllers.ApiControllers
     [RoutePrefix("api/t")]
     public class ConthreadApiController : ApiController
     {
-        private IConthreadService _conthreadService;
+        private IConthreadService<CodeThread> _conthreadService;
 
-        public ConthreadApiController(IConthreadService conthreadService)
+        public ConthreadApiController(IConthreadService<CodeThread> conthreadService)
         {
             _conthreadService = conthreadService;
         }
 
         [Route("")]
-        public IEnumerable<ConthreadEntity> Get()
+        public IEnumerable<CodeThread> Get()
         {
             return _conthreadService.GetAll();
         }

@@ -1,9 +1,9 @@
 ﻿using Autofac;
+using Likja.Conthread;
 using Likja.DataAccess.Common;
 using System.Data.Entity;
-using Ticy.Api.Conthread;
 using Ticy.DataAccess;
-using Ticy.DataAccess.Conthread;
+using Ticy.Domain.Models;
 
 namespace Ticy.Web
 {
@@ -12,10 +12,12 @@ namespace Ticy.Web
         protected override void Load(ContainerBuilder builder)
         {
             // services
-            builder.RegisterType<ConthreadService>().As<IConthreadService>();
+            builder.RegisterType<ConthreadService<CodeThread>>()
+                .As<IConthreadService<CodeThread>>();
 
             // repositories
-            builder.RegisterType<ConthreadRepository>().As<IConthreadRepository>();
+            builder.RegisterType<ConthreadRepository<CodeThread>>()
+                .As<IConthreadRepository<CodeThread>>();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             builder.RegisterType<TicyDb>().As<DbContext>();

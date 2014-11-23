@@ -2,7 +2,7 @@
 
 namespace Ticy.Domain.Enums
 {
-    public enum SyntaxLanguage
+    public enum SyntaxLanguageType
     {
         [Description("Mark Up")]
         MarkUp = 1,

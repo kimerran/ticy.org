@@ -5,6 +5,6 @@ namespace Ticy.Web.ViewModels
 {
     public class HomeIndexViewModel
     {
-        public IEnumerable<ConthreadEntity> Entity { get; set; }
+        public IEnumerable<CodeThread> Entity { get; set; }
     }
 }

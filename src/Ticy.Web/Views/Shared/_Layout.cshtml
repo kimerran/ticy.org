@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - T I C Y !</title>
-    @Styles.Render("~/css")@Styles.Render("~/prism-css")
-    @Scripts.Render("~/modernizr")@Scripts.Render("~/jquery")
+    <title>@ViewBag.Title</title>
+    @Styles.Render(BundleConfig.ObfuscateMap["~/css"])
+    @Styles.Render(BundleConfig.ObfuscateMap["~/prism-css"])
+    @Scripts.Render(BundleConfig.ObfuscateMap["~/modernizr"])
+    @Scripts.Render(BundleConfig.ObfuscateMap["~/jquery"])
 </head>
 <body>
     @RenderSection("bodyheader", required: false)
@@ -30,11 +32,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - ticy.org</p>
+            <p>&copy; @DateTime.Now.Year - ticy.org</p>  | <a href="http://likja.com">likja</a>
         </footer>
     </div>
-    @Scripts.Render("~/bootstrap")
-    @Scripts.Render("~/prism")
+    @Scripts.Render(BundleConfig.ObfuscateMap["~/bootstrap"])
+    @Scripts.Render(BundleConfig.ObfuscateMap["~/prism"])
     @RenderSection("scripts", required: false)
 </body>
 </html>

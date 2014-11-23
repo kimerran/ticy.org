@@ -1,9 +1,7 @@
 ﻿@model  Ticy.Web.ViewModels.ThreadDetailsViewModel
-
 @{
-    ViewBag.Title = Model.Entity.Title;
+    ViewBag.Title = string.Format("{0} - Tang Inang Code Yan!", Model.Entity.Title);
 }
-
 @section bodyHeader{
     <div class="jumbotron" style="width:100%">
         <center>
@@ -11,10 +9,21 @@
         </center>
     </div>
 }
-<p>
-    <pre class="line-numbers"><code class="language-@Model.Entity.LanguageClass)">@Model.Entity.Content</code></pre>
-</p>
+<div id="main-content">
+    @if (Model.Entity.ContentType ==  Likja.Conthread.ContentType.Code)
+    {
+        <pre class="line-numbers"><code class="language-@Model.Entity.LanguageClass)">@Model.Entity.Content</code></pre>
+    }
+    else if (Model.Entity.ContentType == Likja.Conthread.ContentType.Image)
+    {
+        <img src="@Model.Entity.Content" alt="@Model.Entity.Title" />
+    }
+    else if (Model.Entity.ContentType == Likja.Conthread.ContentType.Text)
+    {
+        <p>@Model.Entity.Content</p>
+    }
+</div>
 
 <div id="disqus_thread"></div>
-@Scripts.Render("~/disqus")
+@Scripts.Render(BundleConfig.ObfuscateMap["~/disqus"])
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

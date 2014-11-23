@@ -7,12 +7,12 @@ namespace Ticy.Web.ViewModels
 {
     public class ThreadCreateViewModel
     {
-        public ConthreadEntity Entity { get; set; }
+        public CodeThread Entity { get; set; }
 
         [AllowHtml]
         [Required]
         public string ThreadContent { get; set; }
 
-        public SyntaxLanguage Language { get; set; }
+        public SyntaxLanguageType Language { get; set; }
     }
 }

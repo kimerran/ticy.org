@@ -54,6 +54,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Likja\Likja\Likja.DataAccess.Common\bin\Release\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Likja.Conthread, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libraries\likja\Likja.Conthread.dll</HintPath>
+    </Reference>
     <Reference Include="Likja.DataAccess.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libraries\likja\Likja.DataAccess.Common.dll</HintPath>
@@ -163,7 +167,6 @@
     <Content Include="Content\disqus\disqus.js" />
     <Content Include="Content\prism\prism.css" />
     <Content Include="Content\prism\prism.js" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

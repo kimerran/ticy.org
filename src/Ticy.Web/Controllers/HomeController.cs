@@ -1,7 +1,6 @@
-﻿using System.Linq;
+﻿using Likja.Conthread;
+using System.Linq;
 using System.Web.Mvc;
-using Ticy.Api.Conthread;
-using Ticy.Domain.Extensions;
 using Ticy.Domain.Models;
 using Ticy.Web.ViewModels;
 
@@ -10,9 +9,9 @@ namespace Ticy.Web.Controllers
     [RoutePrefix("")]
     public class HomeController : Controller
     {
-        private IConthreadService _conthreadService;
+        private IConthreadService<CodeThread> _conthreadService;
 
-        public HomeController(IConthreadService conthreadService)
+        public HomeController(IConthreadService<CodeThread> conthreadService)
         {
             _conthreadService = conthreadService;
         }
@@ -45,11 +44,12 @@ namespace Ticy.Web.Controllers
         public ActionResult New(string key = "")
         {
             // don't allow adding from public
-            if (key != "ticyorg") return RedirectToAction("Index");            
+            if (key != "ticyorg")
+                return RedirectToAction("Index");            
 
             var vm = new ThreadCreateViewModel
             {
-                Entity = new ConthreadEntity()
+                Entity = new CodeThread()
             };
             return View(vm);
         }
@@ -63,8 +63,9 @@ namespace Ticy.Web.Controllers
             // get the entity from the vm and save it
 
             var entity = vm.Entity;
-            entity.Content = vm.ThreadContent;
-
+            entity.Title = entity.Title.Trim();
+            entity.Content = vm.ThreadContent.Trim();
+            
             var newId = _conthreadService.Save(entity);
 
             return RedirectToAction("Details", "Conthread", new { hashId = newId.ConvertToHash() });

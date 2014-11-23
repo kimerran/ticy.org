@@ -1,9 +1,9 @@
 ﻿using Likja.DataAccess.Common;
-using Ticy.Domain.Models;
 
-namespace Ticy.DataAccess.Conthread
+namespace Likja.Conthread
 {
-    public class ConthreadRepository : BaseRepository<ConthreadEntity>, IConthreadRepository
+    public class ConthreadRepository<T> : BaseRepository<T>, IConthreadRepository<T>
+        where T : Conthread
     {
         private IUnitOfWork _uow;
         public ConthreadRepository(IUnitOfWork uow) : base(uow)
