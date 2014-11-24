@@ -17,7 +17,7 @@
 <div id="main-content">
     @if (Model.Entity.ContentType == Likja.Conthread.ContentType.Code)
     {
-        <pre class="line-numbers"><code class="language-@Model.Entity.LanguageClass)">@Model.Entity.Content</code></pre>
+        <pre class="line-numbers"><code class="language-@Model.Entity.LanguageClass">@Model.Entity.Content</code></pre>
     }
     else if (Model.Entity.ContentType == Likja.Conthread.ContentType.Image)
     {
