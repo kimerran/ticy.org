@@ -18,5 +18,20 @@ namespace Ticy.Domain.Models
                 return Language.ToString().ToLower();
             }
         }
+
+        [NotMapped]
+        public string UrlTitle
+        {
+            get
+            {
+                if (Title.Length > 30)
+                {
+                    return Title.Substring(0, 30).ToLower().Replace(' ', '-');
+                }
+
+                return Title.ToLower().Replace(' ', '-');
+            }
+        }
+
     }
 }

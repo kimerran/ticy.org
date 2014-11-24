@@ -20,12 +20,18 @@
     <p>
         Content type:
         @Html.EnumDropDownListFor(x => x.Entity.ContentType)
+        <span style="color:red">
+            @Html.ValidationMessageFor(model => model.Entity.ContentType)
+        </span>
     </p>
 
 
     <p>
         Language:
         @Html.EnumDropDownListFor(x => x.Entity.Language)
+        <span style="color:red">
+            @Html.ValidationMessageFor(model => model.Entity.Language)
+        </span>
     </p>
     <p>
         Content :
@@ -42,5 +48,5 @@
 
 @section Scripts
 {
-    @Scripts.Render("~/jqueryval")
+    @Scripts.Render(BundleConfig.ObfuscateMap["~/jqueryval"])
 }

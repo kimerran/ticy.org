@@ -1,15 +1,16 @@
-﻿@model  Ticy.Web.ViewModels.HomeIndexViewModel
+﻿@using Ticy.Web.Common
+@model  Ticy.Web.ViewModels.HomeIndexViewModel
 
 @{
     ViewBag.Title = "Tang Inang Code Yan!";
 }
 
-<ul id="threads">
+<ul id="threads" style="list-style: none">
     @foreach (var item in Model.Entity)
     {
         <li data-id="@item.Id">
-            <h1><a href="/t/@item.HashId">@item.Title</a></h1>
-            <small>@item.Content</small>
+            <h1><a  class="thread-title" href="/t/@ViewHelper.ConvertToHash(item.Id)/@item.UrlTitle">@item.Title...</a></h1>
+            <small class="thread-preview">@item.Content</small>
         </li>
     }
 </ul>

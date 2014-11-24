@@ -25,10 +25,8 @@ namespace Ticy.Web.Controllers
 
             latestThreads.ToList().ForEach(x =>
             {
-               if (x.Content.Length > 300)
-                {
-                    x.Content = x.Content.Substring(0, 300);
-                }
+                if (x.Content.Length > 300)
+                    x.Content = "\{x.Content.Substring(0, 300)}...";
             });
 
             var vm = new HomeIndexViewModel
@@ -43,9 +41,9 @@ namespace Ticy.Web.Controllers
         [HttpGet]
         public ActionResult New(string key = "")
         {
-            // don't allow adding from public
+            // don't allow adding from public (yet)
             if (key != "ticyorg")
-                return RedirectToAction("Index");            
+                return RedirectToAction("Index");
 
             var vm = new ThreadCreateViewModel
             {
@@ -58,17 +56,18 @@ namespace Ticy.Web.Controllers
         [HttpPost]
         public ActionResult Create(ThreadCreateViewModel vm)
         {
-           // if (!ModelState.IsValid) return Redirec
-
-            // get the entity from the vm and save it
-
             var entity = vm.Entity;
             entity.Title = entity.Title.Trim();
             entity.Content = vm.ThreadContent.Trim();
-            
+
             var newId = _conthreadService.Save(entity);
 
-            return RedirectToAction("Details", "Conthread", new { hashId = newId.ConvertToHash() });
+            return RedirectToAction("Details", "Codethread",
+                new
+                {
+                    hashId = newId.ConvertToHash(),
+                    title = entity.Title
+                });
         }
 
         public ActionResult NotFound()

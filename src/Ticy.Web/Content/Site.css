@@ -26,3 +26,14 @@ textarea {
 pre {
     font-size: 120%;
 }
+
+.app-title {
+    font-family: Segoe UI;
+}
+.thread-title {
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.thread-preview {
+    font-family: 'Century Gothic';
+}
