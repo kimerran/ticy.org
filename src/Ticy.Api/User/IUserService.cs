@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ticy.Api.User
 {
-    interface IUserService
+    public interface IUserService
     {
+        Domain.Models.User FindByEmail(string email);
+        int Save(Domain.Models.User entity);
     }
 }

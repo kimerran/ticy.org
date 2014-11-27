@@ -7,12 +7,18 @@ namespace Ticy.Web.ViewModels
 {
     public class ThreadCreateViewModel
     {
+        private const string RequiredMessage = "This is required.";
+
         public CodeThread Entity { get; set; }
 
         [AllowHtml]
-        [Required]
+        [Required(ErrorMessage = RequiredMessage)]
         public string ThreadContent { get; set; }
 
         public SyntaxLanguageType Language { get; set; }
+
+        [Required(ErrorMessage = RequiredMessage)]
+        [EmailAddress(ErrorMessage = "Must be a valid e-mail address.")]
+        public string Email { get; set; }
     }
 }

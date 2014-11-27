@@ -9,7 +9,10 @@ namespace Ticy.Domain.Models
     {      
         [Column("lang")]
         public SyntaxLanguageType Language { get; set; }
-         
+
+        [Column("user_id")]
+        public int UserId { get; set; }
+
         [NotMapped]
         public string LanguageClass
         {

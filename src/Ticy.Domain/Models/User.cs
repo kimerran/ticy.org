@@ -2,9 +2,10 @@
 
 namespace Ticy.Domain.Models
 {
-    public class UserEntity : DomainEntity
+    public class User : DomainEntity
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

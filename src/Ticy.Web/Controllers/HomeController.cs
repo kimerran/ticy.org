@@ -1,6 +1,7 @@
 ﻿using Likja.Conthread;
 using System.Linq;
 using System.Web.Mvc;
+using Ticy.Api.User;
 using Ticy.Domain.Models;
 using Ticy.Web.ViewModels;
 
@@ -10,10 +11,12 @@ namespace Ticy.Web.Controllers
     public class HomeController : Controller
     {
         private IConthreadService<CodeThread> _conthreadService;
+        private IUserService _userService;
 
-        public HomeController(IConthreadService<CodeThread> conthreadService)
+        public HomeController(IConthreadService<CodeThread> conthreadService, IUserService userService)
         {
             _conthreadService = conthreadService;
+            _userService = userService;
         }
 
         [Route("")]
@@ -26,7 +29,7 @@ namespace Ticy.Web.Controllers
             latestThreads.ToList().ForEach(x =>
             {
                 if (x.Content.Length > 300)
-                    x.Content = "\{x.Content.Substring(0, 300)}...";
+                    x.Content = string.Format("{0}...", x.Content.Substring(0, 300));
             });
 
             var vm = new HomeIndexViewModel
@@ -39,12 +42,8 @@ namespace Ticy.Web.Controllers
 
         [Route("new")]
         [HttpGet]
-        public ActionResult New(string key = "")
+        public ActionResult New()
         {
-            // don't allow adding from public (yet)
-            if (key != "ticyorg")
-                return RedirectToAction("Index");
-
             var vm = new ThreadCreateViewModel
             {
                 Entity = new CodeThread()
@@ -59,6 +58,22 @@ namespace Ticy.Web.Controllers
             var entity = vm.Entity;
             entity.Title = entity.Title.Trim();
             entity.Content = vm.ThreadContent.Trim();
+
+            // check if user exists
+            var user = _userService.FindByEmail(vm.Email);
+
+            if (user == null)
+            {
+                // create user
+                user = new Domain.Models.User
+                {
+                    Email = vm.Email
+                };
+
+                user.Id = _userService.Save(user);
+            }
+
+            entity.UserId = user.Id; 
 
             var newId = _conthreadService.Save(entity);
 

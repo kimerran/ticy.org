@@ -4,46 +4,45 @@
     ViewBag.Title = "New";
 }
 
-<h2>New</h2>
+<h2>Create new content</h2>
 
 @using (Html.BeginForm())
 {
-    <p>
-        Title:
-        @Html.EditorFor(x => x.Entity.Title)
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>Title:</th>
+            <td>@Html.EditorFor(x => x.Entity.Title)</td>
+            <td class="validation-msg">@Html.ValidationMessageFor(model => model.Entity.Title)</td>
+        </tr>
+        <tr>
+            <th>Content Type:</th>
+            <td>@Html.EnumDropDownListFor(x => x.Entity.ContentType)</td>
+            <td class="validation-msg">@Html.ValidationMessageFor(model => model.Entity.ContentType)</td>
+        </tr>
+        <tr>
+            <th>Language:</th>
+            <td>@Html.EnumDropDownListFor(x => x.Entity.Language)</td>
+            <td class="validation-msg">@Html.ValidationMessageFor(model => model.Entity.Language)</td>
+        </tr>
+        <tr>
+            <th>Content:</th>
+            <td>@Html.TextAreaFor(x => x.ThreadContent, new { cols = 100, rows = 12, style = "max-width:1000px;" })</td>
+            <td class="validation-msg">@Html.ValidationMessageFor(model => model.ThreadContent)</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>@Html.EditorFor(x => x.Email)</td>
+            <td class="validation-msg">@Html.ValidationMessageFor(x => x.Email)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save" />
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
 
-        <span style="color:red">
-            @Html.ValidationMessageFor(model => model.Entity.Title)
-        </span>
-    </p>
-
-    <p>
-        Content type:
-        @Html.EnumDropDownListFor(x => x.Entity.ContentType)
-        <span style="color:red">
-            @Html.ValidationMessageFor(model => model.Entity.ContentType)
-        </span>
-    </p>
-
-
-    <p>
-        Language:
-        @Html.EnumDropDownListFor(x => x.Entity.Language)
-        <span style="color:red">
-            @Html.ValidationMessageFor(model => model.Entity.Language)
-        </span>
-    </p>
-    <p>
-        Content :
-        @Html.TextAreaFor(x => x.ThreadContent, new { rows = "20", cols = "50" })
-
-        <span style="color:red">
-            @Html.ValidationMessageFor(model => model.ThreadContent)
-        </span>
-
-    </p>
-
-    <input type="submit" value="Save" />
 }
 
 @section Scripts

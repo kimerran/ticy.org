@@ -16,14 +16,14 @@ namespace Ticy.Web
 
         public static Dictionary<string, string> ObfuscateMap = new Dictionary<string, string>
         {
-            {"~/jquery", "~/\{NewGuid}" },
-            {"~/jqueryval", "~/\{NewGuid}"},
-            {"~/modernizr", "~/\{NewGuid}" },
-            {"~/bootstrap", "~/\{NewGuid}" },
-            {"~/prism", "~/\{NewGuid}" },
-            {"~/css", "~/\{NewGuid}" },
-            {"~/prism-css", "~/\{NewGuid}" },
-            {"~/disqus", "~/\{NewGuid}" }
+            {"~/jquery", string.Format("~/{0}", NewGuid)},
+            {"~/jqueryval", string.Format("~/{0}", NewGuid)},
+            {"~/modernizr", string.Format("~/{0}", NewGuid) },
+            {"~/bootstrap", string.Format("~/{0}", NewGuid) },
+            {"~/prism", string.Format("~/{0}", NewGuid) },
+            {"~/css", string.Format("~/{0}", NewGuid) },
+            {"~/prism-css", string.Format("~/{0}", NewGuid) },
+            {"~/disqus", string.Format("~/{0}", NewGuid) }
         };
 
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862

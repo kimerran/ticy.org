@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Likja.DataAccess.Common;
 
 namespace Ticy.DataAccess.User
 {
-    interface IUserRepository
+    public interface IUserRepository : IBaseRepository<Domain.Models.User>
     {
+        Domain.Models.User FindByEmail(string email);
     }
 }

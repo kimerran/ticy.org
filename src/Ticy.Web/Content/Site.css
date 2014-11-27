@@ -37,3 +37,12 @@ pre {
 .thread-preview {
     font-family: 'Century Gothic';
 }
+
+.red {
+    color: red;
+}
+
+.validation-msg {
+    color:red;
+    font-size:smaller;
+}

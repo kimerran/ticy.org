@@ -52,7 +52,7 @@
     <Compile Include="AuditableEntity.cs" />
     <Compile Include="Enums\SyntaxLanguageType.cs" />
     <Compile Include="Models\CodeThread.cs" />
-    <Compile Include="Models\UserEntity.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
