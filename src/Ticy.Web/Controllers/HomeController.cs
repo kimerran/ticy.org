@@ -81,7 +81,7 @@ namespace Ticy.Web.Controllers
                 new
                 {
                     hashId = newId.ConvertToHash(),
-                    title = entity.Title
+                    title = entity.SlugTitle
                 });
         }
 

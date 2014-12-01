@@ -9,7 +9,7 @@
     @foreach (var item in Model.Entity)
     {
         <li data-id="@item.Id">
-            <h1><a  class="thread-title" href="/t/@ViewHelper.ConvertToHash(item.Id)/@item.UrlTitle">@item.Title...</a></h1>
+            <h1><a  class="thread-title" href="/t/@ViewHelper.ConvertToHash(item.Id)/@item.SlugTitle">@item.Title...</a></h1>
             <small class="thread-preview">@item.Content</small>
         </li>
     }
