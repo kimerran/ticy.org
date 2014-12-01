@@ -21,7 +21,9 @@
     }
     else if (Model.Entity.ContentType == Likja.Conthread.ContentType.Image)
     {
-        <img src="@Model.Entity.Content" alt="@Model.Entity.Title" />
+        <center>
+            <img src="@Model.Entity.Content" alt="@Model.Entity.Title" />
+        </center>
     }
     else if (Model.Entity.ContentType == Likja.Conthread.ContentType.Text)
     {

@@ -10,7 +10,14 @@
     {
         <li data-id="@item.Id">
             <h1><a  class="thread-title" href="/t/@ViewHelper.ConvertToHash(item.Id)/@item.SlugTitle">@item.Title...</a></h1>
-            <small class="thread-preview">@item.Content</small>
+            @if (item.ContentType == Likja.Conthread.ContentType.Image)
+            {
+                <small class="thread-preview">click on the link above to view this picture</small>
+            }
+            else
+            {
+                <small class="thread-preview">@item.Content</small>
+            }
         </li>
     }
 </ul>
